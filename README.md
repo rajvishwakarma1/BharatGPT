@@ -2,12 +2,14 @@
 
 ---
 
+<div align="center">
+
 ![BharatGPT Banner](./assets/banner.png)  
 *An AI chatbot designed for Indian languages and cultural contexts*
 
----
-
 **An AI chatbot powered by the Gemini API, designed to deliver natural and contextual conversations with support for Indian languages and use cases.**
+
+</div>
 
 ---
 
@@ -101,6 +103,32 @@ python app.py
 ```
 
 The server will start at `http://localhost:5000`
+
+---
+
+## 🎥 Demo Video
+
+<div align="center">
+
+### Watch BharatGPT in Action
+
+[![BharatGPT Demo Video](./assets/video-thumbnail.png)](https://youtu.be/your-video-id)
+
+*Click the image above to watch a full demonstration of BharatGPT's capabilities*
+
+**🎬 What's covered in the demo:**
+- Setting up BharatGPT locally
+- Multi-language conversation examples
+- API integration walkthrough
+- Real-time chat demonstrations in Hindi, English, and other Indian languages
+- Cultural context understanding showcase
+
+**📺 Alternative Demo Links:**
+- [YouTube Demo](https://youtu.be/your-video-id) - Full feature walkthrough
+- [Loom Quick Demo](https://loom.com/your-demo-link) - 3-minute overview
+- [Live Demo Site](https://bharatgpt-demo.vercel.app) - Try it yourself!
+
+</div>
 
 ---
 
