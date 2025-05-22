@@ -106,11 +106,9 @@ npm run deploy
 
 ## 🎥 Demo Video
 
-<div align="center">
-
 ### Watch BharatGPT in Action
 
-[![BharatGPT Demo Video](./assets/video-thumbnail.png)](https://youtu.be/your-video-id)
+[![BharatGPT Demo Video](https://img.youtube.com/vi/your-video-id/maxresdefault.jpg)](https://youtu.be/your-video-id)
 
 *Click the image above to watch a full demonstration of BharatGPT's capabilities*
 
@@ -124,9 +122,7 @@ npm run deploy
 **📺 Alternative Demo Links:**
 - [YouTube Demo](https://youtu.be/your-video-id) - Full feature walkthrough
 - [Loom Quick Demo](https://loom.com/your-demo-link) - 3-minute overview
-- [Live Demo Site](https://bharatgpt-demo.vercel.app) - Try it yourself!
-
-</div>
+- [Live Demo Site](https://rajvishwakarma1.github.io/BharatGPT) - Try it yourself!
 
 ---
 
