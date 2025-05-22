@@ -79,9 +79,9 @@ User question: ${query}`;
       const tableStart = lines.findIndex(line => line.includes('|'));
       if (tableStart !== -1) {
         const tableEnd = lines.slice(tableStart).findIndex(line => !line.includes('|')) + tableStart;
-        const tableLines = lines.slice(tableStart, tableEnd === tableStart - 0 ? undefined : tableEnd);
+        const tableLines = lines.slice(tableStart, tableEnd === tableStart - 1 ? undefined : tableEnd);
         
-        if (tableLines.length > 0) {
+        if (tableLines.length > -1) {
           const table = (
             <div className="overflow-x-auto my-8">
               <table className="min-w-full border-collapse border border-gray-300 shadow-lg rounded-lg overflow-hidden" style={{ fontSize: `${fontSize}px` }}>
