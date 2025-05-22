@@ -1,9 +1,13 @@
+# BharatGPT
+
+---
+
 <div align="center">
 
 ![BharatGPT Banner](./assets/banner.png)  
-*An AI chatbot designed for Indian languages and cultural contexts*
+*Simplifying Indian Government Schemes for Every Citizen*
 
-**An AI chatbot powered by the Gemini API, designed to deliver natural and contextual conversations with support for Indian languages and use cases.**
+**BharatGPT helps Indian citizens easily understand government schemes, policies, and benefits in their native language. Get clear, simplified explanations of complex government documents and eligibility criteria.**
 
 </div>
 
@@ -11,12 +15,14 @@
 
 ## 🚀 Features
 
-- **Text Generation**: Powered by Google's Gemini API for high-quality responses
-- **Context-Aware**: Maintains conversation context for natural interactions
-- **Multi-Language Support**: Supports multiple Indian languages (Hindi, Tamil, Telugu, Bengali, and more)
-- **Cultural Context**: Understands Indian cultural nuances and references
-- **Easy Integration**: Simple backend API for frontend applications
-- **Open Source**: Fully extensible and customizable
+- **Government Scheme Explanations**: Get simplified explanations of complex government schemes like PM-KISAN, Ayushman Bharat, MGNREGA, and more
+- **Multi-Language Support**: Available in Hindi, Tamil, Telugu, Bengali, Marathi, Gujarati, and other Indian languages
+- **Eligibility Checker**: Understand if you qualify for specific government benefits and schemes
+- **Document Requirements**: Get clear lists of required documents for applications
+- **Application Process**: Step-by-step guidance on how to apply for government schemes
+- **Local Context**: Information tailored to specific states and regions
+- **Real-time Updates**: Access to latest scheme announcements and policy changes
+- **Simplified Language**: Complex government jargon translated into easy-to-understand terms
 
 ---
 
@@ -37,18 +43,18 @@
 ```
 ┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
 │                 │    │                 │    │                 │
-│   React App     │◄──►│   Gemini API    │◄──►│   Google AI     │
-│   (Frontend)    │    │   Integration   │    │   Services      │
+│   Citizen       │◄──►│   BharatGPT     │◄──►│   Gemini API    │
+│   (User)        │    │   (Scheme Info) │    │   (AI Engine)   │
 │                 │    │                 │    │                 │
 └─────────────────┘    └─────────────────┘    └─────────────────┘
-        │
-        ▼
-┌─────────────────┐
-│                 │
-│  GitHub Pages   │
-│  (Deployment)   │
-│                 │
-└─────────────────┘
+        │                        │                        │
+        ▼                        ▼                        ▼
+┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
+│                 │    │                 │    │                 │
+│  Native Lang.   │    │  Govt. Schemes  │    │  Smart Responses│
+│  Questions      │    │  Database       │    │  Processing     │
+│                 │    │                 │    │                 │
+└─────────────────┘    └─────────────────┘    └─────────────────┘
 ```
 
 ---
@@ -109,11 +115,12 @@ npm run deploy
 *Click the image above to watch a full demonstration of BharatGPT's capabilities*
 
 **🎬 What's covered in the demo:**
-- Setting up BharatGPT locally
-- Multi-language conversation examples
-- API integration walkthrough
-- Real-time chat demonstrations in Hindi, English, and other Indian languages
-- Cultural context understanding showcase
+- How to ask about government schemes in your native language
+- Live examples of scheme explanations (PM-KISAN, Ayushman Bharat, etc.)
+- Eligibility checking for various government programs
+- Document requirement lists for applications
+- Step-by-step application processes
+- Multi-language support demonstration
 
 **📺 Alternative Demo Links:**
 - [YouTube Demo](https://youtu.be/6YDia3aXHXo) - Full feature walkthrough
@@ -126,11 +133,21 @@ npm run deploy
 ### Live Demo
 Try BharatGPT live at: [https://rajvishwakarma1.github.io/BharatGPT](https://rajvishwakarma1.github.io/BharatGPT)
 
-### Local Development
-1. Start the development server: `npm run dev`
-2. Open your browser and navigate to `http://localhost:5173`
-3. Enter your message in Hindi, English, or other supported Indian languages
-4. Experience contextual AI responses tailored for Indian users
+### Example Queries You Can Ask:
+
+**In Hindi:**
+- "PM-KISAN योजना के लिए कौन पात्र है?"
+- "आयुष्मान भारत में क्या कवर होता है?"
+- "MGNREGA के तहत कितना मजदूरी मिलता है?"
+
+**In English:**
+- "What documents do I need for Pradhan Mantri Awas Yojana?"
+- "How to apply for Sukanya Samriddhi Yojana?"
+- "What are the benefits of Jan Dhan Yojana?"
+
+**In Tamil:**
+- "முख்यமந்திரி காப்பீட்டு திட்டத்தின் நன்மைகள் என்ன?"
+- "கல்வி கடன் திட்டத்திற்கு எப்படி விண்ணப்பிப்பது?"
 
 ### Integration Example
 ```typescript
@@ -138,32 +155,49 @@ import { GoogleGenerativeAI } from '@google/generative-ai';
 
 const genAI = new GoogleGenerativeAI(process.env.VITE_GEMINI_API_KEY!);
 
-async function generateResponse(prompt: string) {
+async function getSchemeInfo(query: string) {
   const model = genAI.getGenerativeModel({ model: "gemini-pro" });
+  
+  const prompt = `As BharatGPT, explain this Indian government scheme query in simple terms: ${query}. 
+  Include eligibility, benefits, required documents, and application process.`;
+  
   const result = await model.generateContent(prompt);
   const response = await result.response;
   return response.text();
 }
 
 // Example usage
-const response = await generateResponse("भारत की राजधानी क्या है?");
-console.log(response);
+const info = await getSchemeInfo("PM-KISAN योजना क्या है?");
+console.log(info);
 ```
 
 ---
 
-## 🌐 Supported Languages
+## 🌐 Supported Languages & Government Schemes
 
-- **Hindi** (hi)
-- **English** (en)
-- **Tamil** (ta)
-- **Telugu** (te)
-- **Bengali** (bn)
-- **Marathi** (mr)
-- **Gujarati** (gu)
-- **Kannada** (kn)
-- **Malayalam** (ml)
-- **Punjabi** (pa)
+### Languages Supported:
+- **Hindi** (हिंदी) - Primary language for most schemes
+- **English** - Official documentation language
+- **Tamil** (தமிழ்) - Tamil Nadu specific schemes
+- **Telugu** (తెలుగు) - Andhra Pradesh & Telangana schemes
+- **Bengali** (বাংলা) - West Bengal specific programs
+- **Marathi** (मराठी) - Maharashtra state schemes
+- **Gujarati** (ગુજરાતી) - Gujarat government programs
+- **Kannada** (ಕನ್ನಡ) - Karnataka state benefits
+- **Malayalam** (മലയാളം) - Kerala government schemes
+- **Punjabi** (ਪੰਜਾਬੀ) - Punjab state programs
+
+### Popular Government Schemes Covered:
+- **PM-KISAN** - Direct cash transfer for farmers
+- **Ayushman Bharat** - Healthcare insurance scheme
+- **MGNREGA** - Rural employment guarantee
+- **PM Awas Yojana** - Housing for all mission
+- **Jan Dhan Yojana** - Financial inclusion program
+- **Sukanya Samriddhi** - Girl child savings scheme
+- **Pradhan Mantri Mudra Yojana** - Micro finance scheme
+- **Atal Pension Yojana** - Pension scheme for workers
+- **PM Fasal Bima Yojana** - Crop insurance scheme
+- **Swachh Bharat Mission** - Clean India initiative
 
 ---
 
@@ -250,8 +284,9 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 🙏 Acknowledgments
 
 - Thanks to Google for providing the Gemini API
-- Inspired by the need for AI that understands Indian cultural context
-- Built with ❤️ for the Indian developer community
+- Inspired by the need to bridge the information gap between government schemes and citizens
+- Dedicated to making government benefits accessible to every Indian citizen
+- Built with ❤️ to empower rural and urban communities with knowledge
 
 ---
 
