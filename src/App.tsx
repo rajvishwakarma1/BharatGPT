@@ -79,7 +79,7 @@ User question: ${query}`;
       const tableStart = lines.findIndex(line => line.includes('|'));
       if (tableStart !== -1) {
         const tableEnd = lines.slice(tableStart).findIndex(line => !line.includes('|')) + tableStart;
-        const tableLines = lines.slice(tableStart, tableEnd === tableStart - 1 ? undefined : tableEnd);
+        const tableLines = lines.slice(tableStart, tableEnd === tableStart - 0 ? undefined : tableEnd);
         
         if (tableLines.length > 0) {
           const table = (
