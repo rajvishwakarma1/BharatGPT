@@ -1,7 +1,3 @@
-# BharatGPT
-
----
-
 <div align="center">
 
 ![BharatGPT Banner](./assets/banner.png)  
