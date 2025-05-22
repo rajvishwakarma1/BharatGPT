@@ -297,7 +297,7 @@ User question: ${query}`;
         <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/ashoka-wheel.png')] opacity-5"></div>
         <div className="relative z-10">
           <p>BharatGPT - सरकारी योजनाओं के बारे में जानकारी प्राप्त करें | Get information about government schemes</p>
-          <p className="mt-2">© 2025 BharatGPT</p>
+          <p className="mt-2">© 2025 Raj Vishwakarma</p>
         </div>
       </footer>
     </div>
