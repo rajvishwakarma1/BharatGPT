@@ -26,11 +26,13 @@
 
 ## 🛠 Tech Stack
 
-- **Backend**: Python (Flask/FastAPI)
-- **AI Service**: Google Gemini API
-- **Database**: Optional (MongoDB/PostgreSQL for chat history)
-- **Environment Management**: python-dotenv
-- **API Documentation**: Swagger/OpenAPI (optional)
+- **Frontend**: React 18 + TypeScript
+- **Build Tool**: Vite
+- **Styling**: Tailwind CSS
+- **AI Service**: Google Gemini API (@google/generative-ai)
+- **Icons**: Lucide React
+- **Deployment**: GitHub Pages
+- **Linting**: ESLint
 
 ---
 
@@ -39,25 +41,25 @@
 ```
 ┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
 │                 │    │                 │    │                 │
-│   Frontend      │◄──►│   BharatGPT     │◄──►│   Gemini API    │
-│   Application   │    │   Backend       │    │                 │
+│   React App     │◄──►│   Gemini API    │◄──►│   Google AI     │
+│   (Frontend)    │    │   Integration   │    │   Services      │
 │                 │    │                 │    │                 │
 └─────────────────┘    └─────────────────┘    └─────────────────┘
-                                │
-                                ▼
-                       ┌─────────────────┐
-                       │                 │
-                       │   Database      │
-                       │   (Optional)    │
-                       │                 │
-                       └─────────────────┘
+        │
+        ▼
+┌─────────────────┐
+│                 │
+│  GitHub Pages   │
+│  (Deployment)   │
+│                 │
+└─────────────────┘
 ```
 
 ---
 
 ## 📋 Prerequisites
 
-- Python 3.8 or higher
+- Node.js 18+ and npm
 - Google Gemini API Key ([Get it here](https://makersuite.google.com/app/apikey))
 - Git
 
@@ -71,38 +73,34 @@ git clone https://github.com/rajvishwakarma1/BharatGPT.git
 cd BharatGPT
 ```
 
-### 2. Create Virtual Environment
+### 2. Install Dependencies
 ```bash
-# Create virtual environment
-python -m venv venv
-
-# Activate virtual environment
-# On Windows:
-venv\Scripts\activate
-# On macOS/Linux:
-source venv/bin/activate
+npm install
 ```
 
-### 3. Install Dependencies
-```bash
-pip install -r requirements.txt
-```
-
-### 4. Environment Configuration
+### 3. Environment Configuration
 Create a `.env` file in the project root and add your Gemini API key:
 
 ```env
-GEMINI_API_KEY=your_gemini_api_key_here
-PORT=5000
-DEBUG=True
+VITE_GEMINI_API_KEY=your_gemini_api_key_here
 ```
 
-### 5. Run the Application
+### 4. Run the Development Server
 ```bash
-python app.py
+npm run dev
 ```
 
-The server will start at `http://localhost:5000`
+The application will start at `http://localhost:5173`
+
+### 5. Build for Production
+```bash
+npm run build
+```
+
+### 6. Deploy to GitHub Pages
+```bash
+npm run deploy
+```
 
 ---
 
@@ -132,45 +130,33 @@ The server will start at `http://localhost:5000`
 
 ---
 
-## 🎯 API Usage
+## 🎯 Usage
 
-### Basic Chat Endpoint
-```bash
-curl -X POST http://localhost:5000/api/chat \
-  -H "Content-Type: application/json" \
-  -d '{
-    "message": "नमस्ते! आप कैसे हैं?",
-    "language": "hi"
-  }'
-```
+### Live Demo
+Try BharatGPT live at: [https://rajvishwakarma1.github.io/BharatGPT](https://rajvishwakarma1.github.io/BharatGPT)
 
-### Python Example
-```python
-import os
-import requests
-from dotenv import load_dotenv
+### Local Development
+1. Start the development server: `npm run dev`
+2. Open your browser and navigate to `http://localhost:5173`
+3. Enter your message in Hindi, English, or other supported Indian languages
+4. Experience contextual AI responses tailored for Indian users
 
-load_dotenv()
+### Integration Example
+```typescript
+import { GoogleGenerativeAI } from '@google/generative-ai';
 
-# BharatGPT API endpoint
-API_URL = "http://localhost:5000/api/chat"
+const genAI = new GoogleGenerativeAI(process.env.VITE_GEMINI_API_KEY!);
 
-def chat_with_bharatgpt(message, language="en"):
-    payload = {
-        "message": message,
-        "language": language
-    }
-    
-    response = requests.post(API_URL, json=payload)
-    
-    if response.status_code == 200:
-        return response.json()["response"]
-    else:
-        return "Error: " + response.text
+async function generateResponse(prompt: string) {
+  const model = genAI.getGenerativeModel({ model: "gemini-pro" });
+  const result = await model.generateContent(prompt);
+  const response = await result.response;
+  return response.text();
+}
 
-# Example usage
-response = chat_with_bharatgpt("भारत की राजधानी क्या है?", "hi")
-print(response)
+// Example usage
+const response = await generateResponse("भारत की राजधानी क्या है?");
+console.log(response);
 ```
 
 ---
@@ -194,22 +180,21 @@ print(response)
 
 ```
 BharatGPT/
-├── app.py                 # Main application file
-├── requirements.txt       # Python dependencies
-├── .env                  # Environment variables
-├── .gitignore           # Git ignore file
-├── README.md            # Project documentation
-├── assets/              # Images and media files
-│   ├── banner.png
-│   └── architecture.png
+├── public/              # Static assets
 ├── src/                 # Source code
-│   ├── __init__.py
-│   ├── chat_handler.py  # Chat logic
-│   ├── gemini_client.py # Gemini API integration
-│   └── utils.py         # Utility functions
-└── tests/               # Test files
-    ├── test_chat.py
-    └── test_api.py
+│   ├── components/      # React components
+│   ├── hooks/          # Custom React hooks
+│   ├── utils/          # Utility functions
+│   ├── types/          # TypeScript type definitions
+│   ├── App.tsx         # Main App component
+│   ├── main.tsx        # Application entry point
+│   └── index.css       # Global styles
+├── .env                # Environment variables
+├── package.json        # Node.js dependencies
+├── tsconfig.json       # TypeScript configuration
+├── tailwind.config.js  # Tailwind CSS configuration
+├── vite.config.ts      # Vite configuration
+└── README.md           # Project documentation
 ```
 
 ---
@@ -224,7 +209,12 @@ We welcome contributions! Here's how to get started:
    git checkout -b feature/your-feature-name
    ```
 3. **Make your changes**
-4. **Commit your changes**
+4. **Test your changes**
+   ```bash
+   npm run dev
+   npm run build
+   ```
+5. **Commit your changes**
    ```bash
    git commit -m "Add: your feature description"
    ```
@@ -235,10 +225,11 @@ We welcome contributions! Here's how to get started:
 6. **Open a Pull Request**
 
 ### Contribution Guidelines
-- Follow PEP 8 style guidelines
-- Add tests for new features
-- Update documentation as needed
-- Ensure all tests pass before submitting
+- Follow React and TypeScript best practices
+- Use Tailwind CSS for styling
+- Add proper TypeScript types
+- Test your changes locally before submitting
+- Ensure all linting passes: `npm run lint`
 
 ---
 
