@@ -104,7 +104,7 @@ npm run deploy
 
 ### Watch BharatGPT in Action
 
-[![BharatGPT Demo Video](https://img.youtube.com/vi/your-video-id/maxresdefault.jpg)](https://youtu.be/your-video-id)
+[![BharatGPT Demo Video](https://img.youtube.com/vi/6YDia3aXHXo/maxresdefault.jpg)](https://youtu.be/6YDia3aXHXo)
 
 *Click the image above to watch a full demonstration of BharatGPT's capabilities*
 
@@ -116,8 +116,7 @@ npm run deploy
 - Cultural context understanding showcase
 
 **📺 Alternative Demo Links:**
-- [YouTube Demo](https://youtu.be/your-video-id) - Full feature walkthrough
-- [Loom Quick Demo](https://loom.com/your-demo-link) - 3-minute overview
+- [YouTube Demo](https://youtu.be/6YDia3aXHXo) - Full feature walkthrough
 - [Live Demo Site](https://rajvishwakarma1.github.io/BharatGPT) - Try it yourself!
 
 ---
